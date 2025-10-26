@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% import "bootstrap/wtf.html" as wtf %}  <!-- 新增这行：导入wtf工具 -->
+{% import "bootstrap/wtf.html" as wtf %} 
 
 {% block title %}编辑学生 - 学生信息管理系统{% endblock %}
 
@@ -8,10 +8,10 @@
 <hr>
 
 <div class="col-md-6">
-    {{ wtf.quick_form(form) }}  <!-- 现在wtf变量已定义，可正常使用 -->
+    {{ wtf.quick_form(form) }}  
 </div>
 
 <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">
-    <span class="glyphicon glyphicon-arrow-left"></span> 返回学生列表
+    <span class="glyphicon glyphicon-arrow-left"></span> 
 </a>
 {% endblock %}

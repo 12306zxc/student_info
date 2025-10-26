@@ -1,20 +1,20 @@
-{% extends "base.html" %}  <!-- 继承自定义基础模板 -->
+{% extends "base.html" %}  
 
-<!-- 页面标题 -->
+
 {% block title %}编辑学生 - 学生信息管理系统{% endblock %}
 
-<!-- 编辑页面内容 -->
+
 {% block page_content %}
 <h1 class="mb-4">编辑学生信息（ID：{{ stu_id }}）</h1>
 <hr>
 
-<!-- 渲染编辑表单（自动填充当前学生信息） -->
+
 <div class="col-md-6">
     {{ wtf.quick_form(form) }}
 </div>
 
-<!-- 返回首页按钮 -->
+
 <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">
-    <span class="glyphicon glyphicon-arrow-left"></span> 返回学生列表
+    <span class="glyphicon glyphicon-arrow-left"></span> 
 </a>
 {% endblock %}

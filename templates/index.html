@@ -1,33 +1,33 @@
-{% extends "base.html" %}  <!-- 继承自定义基础模板 -->
+{% extends "base.html" %}  
 
-<!-- 首页标题 -->
+
 {% block title %}学生列表 - 学生信息管理系统{% endblock %}
 
-<!-- 首页具体内容 -->
+
 {% block page_content %}
 <h1 class="mb-4">学生信息列表</h1>
 <hr>
 
-<!-- 新增学生按钮（跳转到/add路由） -->
+
 <a href="{{ url_for('add_student') }}" class="btn btn-primary mb-3">
     <span class="glyphicon glyphicon-plus"></span> 新增学生
 </a>
 
-<!-- 显示学生总数 -->
+
 <p class="text-muted">当前共有 {{ students|length }} 名学生</p>
 
-<!-- 循环展示所有学生信息 -->
+
 {% if students %}
     {% for stu in students %}
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">学生ID：{{ stu.student_id }}</h5>
             <h6 class="card-subtitle text-muted mb-2">学生姓名：{{ stu.student_name }}</h6>
-            <!-- 编辑按钮（跳转到/edit/学生ID路由） -->
+           
             <a href="{{ url_for('edit_student', stu_id=stu.student_id) }}" class="btn btn-sm btn-warning">
                 <span class="glyphicon glyphicon-pencil"></span> 编辑
             </a>
-            <!-- 删除按钮（跳转到/delete/学生ID路由，带确认提示） -->
+            
             <a href="{{ url_for('delete_student', stu_id=stu.student_id) }}" class="btn btn-sm btn-danger" 
                onclick="return confirm('确定要删除ID为 {{ stu.student_id }} 的学生吗？')">
                 <span class="glyphicon glyphicon-trash"></span> 删除
@@ -36,7 +36,7 @@
     </div>
     {% endfor %}
 {% else %}
-    <!-- 无学生数据时的提示 -->
+    
     <div class="alert alert-info">
         <span class="glyphicon glyphicon-info-sign"></span> 暂无学生信息，请点击“新增学生”添加数据
     </div>

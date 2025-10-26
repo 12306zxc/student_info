@@ -1,23 +1,23 @@
-{% extends "bootstrap/base.html" %}  <!-- 继承Flask-Bootstrap内置基础模板 -->
+{% extends "bootstrap/base.html" %}  
 
-<!-- 页面标题 -->
+
 {% block title %}学生信息管理系统{% endblock %}
 
-<!-- 自定义样式（继承Bootstrap基础样式后添加自定义样式） -->
+
 {% block styles %}
-{{ super() }}  <!-- 保留父模板的Bootstrap样式 -->
+{{ super() }}  
 <style>
-    .container { margin-top: 30px; }  /* 页面内容距顶部30px */
-    .alert { margin-bottom: 20px; }   /* 提示框底部间距 */
-    .card { margin-bottom: 15px; }    /* 学生卡片底部间距 */
-    h1 { color: #333; }               /* 标题颜色 */
+    .container { margin-top: 30px; } 
+    .alert { margin-bottom: 20px; }   
+    .card { margin-bottom: 15px; }   
+    h1 { color: #333; }              
 </style>
 {% endblock %}
 
-<!-- 页面主体内容区域 -->
+
 {% block content %}
 <div class="container">
-    <!-- 显示操作提示信息（如“新增成功”“删除成功”） -->
+   
     {% for message in get_flashed_messages(with_categories=true) %}
     <div class="alert alert-{{ message[0] }}">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -25,7 +25,7 @@
     </div>
     {% endfor %}
 
-    <!-- 子模板的内容会填充到这里 -->
+   
     {% block page_content %}{% endblock %}
 </div>
 {% endblock %}
